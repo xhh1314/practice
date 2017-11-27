@@ -9,13 +9,14 @@ package practice.algorithm;
 public class BinaryHeap {
 
     public static void main(String[] args) {
-        BinaryHeapImpl bhi = new BinaryHeapImpl();
+        
         int[] a = {14, 1, 5, 18, 7, 4, 8};
+        BinaryHeapImpl bhi = new BinaryHeapImpl(a.length+1);
         int[] result = bhi.heap;
         for (int i = 0; i < a.length; i++) {
             bhi.insertMax(a[i]);
         }
-        bhi.deleteMax(1);
+        bhi.sort();
 
 
     }
@@ -25,8 +26,11 @@ public class BinaryHeap {
 
 class BinaryHeapImpl {
 
-    int[] heap = new int[100];
+    int[] heap ;
     private int size = 0;
+    public BinaryHeapImpl(int size) {
+    	heap=new int[size];
+    }
 
     /**
      * 最小堆插入算法
@@ -120,6 +124,34 @@ class BinaryHeapImpl {
             return -1;
         }
 
+    }
+    
+    /**
+     * 实现一个堆排序,使用最大堆删除
+     */
+    public void sort() {
+    	int[] result=heap;
+    	while(size>1) {	
+    	int index=1;
+    	int frist=heap[1];
+    	 if (index == size) {
+             heap[size] = 0;
+             return;
+         }
+         int child;
+         while (true) {
+             child = maxChild(index);
+             if (child < 0) {
+                 break;
+             }
+             heap[index] = heap[child];
+             index = child;
+         }
+         heap[index] = heap[size];
+         heap[size] = frist;
+         size--;
+    	}
+    	
     }
 
 }
