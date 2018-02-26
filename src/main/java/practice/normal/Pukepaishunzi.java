@@ -1,10 +1,7 @@
 package practice.normal;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
-import org.junit.Test;
 
 /**
  * LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)...他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,
@@ -155,7 +152,7 @@ public class Pukepaishunzi {
 		return flag1 || flag2;
 	}
 
-	@Test
+
 	public void test1() {
 		int[] val = { 0, 1, 2, 3, 5 };
 		System.out.println(shunzi(val));
