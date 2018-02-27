@@ -1,9 +1,5 @@
 package practice.normal;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 
@@ -156,7 +152,7 @@ public class Pukepaishunzi {
 		return flag1 || flag2;
 	}
 
-	@Test
+
 	public void test1() {
 		int[] val = { 0, 1, 2, 3, 5 };
 		System.out.println(shunzi(val));
