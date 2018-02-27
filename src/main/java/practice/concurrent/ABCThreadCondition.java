@@ -70,11 +70,9 @@ class PrintClass {
 		finally{
 			lock.unlock();
 		}
-		
 		}else{
 			System.out.println("线程"+Thread.currentThread().getName()+"第"+i+"次try失败");
 		}
-		
 	}
 	public void printB(int i){
 		if(lock.tryLock()){
