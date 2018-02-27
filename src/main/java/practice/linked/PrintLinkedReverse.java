@@ -1,4 +1,4 @@
-package practice.normal;
+package practice.linked;
 
 import java.util.ArrayList;
 
