@@ -7,9 +7,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.6.RELEASE</version>
-		<relativePath></relativePath>
+		<version>1.5.9.RELEASE</version>
 	</parent>
+	<properties>
+
+
+	</properties>
 	<dependencies>
 		<!-- Add typical dependencies for a web application 同时会附带对logback的支持 -->
 		<dependency>
@@ -65,6 +68,16 @@
 			<version>RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -76,6 +89,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.5.9.RELEASE</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

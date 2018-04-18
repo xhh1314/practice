@@ -91,8 +91,8 @@ class MergeSort2 {
             }else{
                 temp[t++]=target[i++];
                 temp[t++]=target[j++];
-            sort(a,center);
-            sort(center+1,b);
+           // sort(a,center);
+            //sort(center+1,b);
             }
 
         }

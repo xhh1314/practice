@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class PrintLinkedReverse {
 
-    ArrayList<String> lists = new ArrayList<>();
+    ArrayList<String> lists = new ArrayList<String>();
 
     public void addNodeToLinked(Node head) {
         if (head != null) {

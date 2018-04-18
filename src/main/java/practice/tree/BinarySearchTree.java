@@ -60,7 +60,7 @@ class BinaryTree1<T extends Comparable<? super T>>{
 	}
 	
 
-	//迭代版
+	//迭代版 插入
 	public void insertV2(BinaryTree1<T> t,T v){
 		if(t.value==null){
 			t.value=v;
