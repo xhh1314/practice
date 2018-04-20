@@ -75,6 +75,8 @@ class MergeSort2 {
     public void sort(int a,int b){
         if(a<b){
             int center=(a+b)/2;
+            sort(a,center);
+            sort(center+1,b);
             merge(a,center+1,b);
 
         }
@@ -91,8 +93,6 @@ class MergeSort2 {
             }else{
                 temp[t++]=target[i++];
                 temp[t++]=target[j++];
-          //  sort(a,center);
-          //  sort(center+1,b);
             }
 
         }

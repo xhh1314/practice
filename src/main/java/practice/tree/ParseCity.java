@@ -11,11 +11,37 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *解析编码格式的国家城市算法实现
+ * 解析编码格式的国家城市算法实现
+ * <p>
+ * 110000	北京市
+ * 110100	市辖区
+ * 110101	东城区
+ * 110102	西城区
+ * 110105	朝阳区
+ * 110106	丰台区
+ * 110107	石景山区
+ * 110108	海淀区
+ * 110109	门头沟区
+ * 110111	房山区
+ * 110112	通州区
+ * 110113	顺义区
+ * 110114	昌平区
+ * 110115	大兴区
+ * 110116	怀柔区
+ * 110117	平谷区
+ * 110200	县
+ * 110228	密云县
+ * 110229	延庆县
+ * 120000	天津市
+ * 120100	市辖区
+ * 120101	和平区
+ * 120102	河东区
+ * 120103	河西区
+ * 120104	南开区
  *
- *@author lh
- *@date 2018/2/4
- *@since
+ * @author lh
+ * @date 2018/2/4
+ * @since
  */
 public class ParseCity {
 
@@ -58,7 +84,7 @@ public class ParseCity {
         }
         //得到全部是0的字符串
         String zeroString = zeroCode.toString();
-        this.root.id=Integer.parseInt(zeroString);
+        this.root.id = Integer.parseInt(zeroString);
         for (AppCity city : cities) {
             String code = city.getCityId().toString();
             //先判断下是否是根,即code=00000000的情况
@@ -79,7 +105,7 @@ public class ParseCity {
                         Node parent = findNodeById(Integer.parseInt(parentCode));
                         if (parent == null) {
                             log.info("节点{}暂未找到父节点!", code);
-                            AppCity city1=new AppCity();
+                            AppCity city1 = new AppCity();
                             city1.setCityId(Integer.parseInt(parentCode));
                             if (!cities.contains(city1)) {
                                 throw new IllegalArgumentException("父节点不存在!");
@@ -140,7 +166,7 @@ public class ParseCity {
             throw new IllegalArgumentException("不合法的id");
         Node next = this.root;
         //Stack<Node> stack = new Stack<>();
-        Queue<Node> queue = new ArrayDeque<>(500);
+        Queue<Node> queue = new ArrayDeque<>(50);
         while (next != null || !queue.isEmpty()) {
             if (next == null)
                 next = queue.poll();
@@ -158,16 +184,16 @@ public class ParseCity {
     /**
      * 广度优先遍历，打印所有节点
      */
-    public void print(){
-        Node next=this.root;
-        Queue<Node> queue=new ArrayDeque(50);
-        while(next!=null || !queue.isEmpty()){
-            if(next==null)
-                next=queue.poll();
-            if(next.first!=null)
+    public void print() {
+        Node next = this.root;
+        Queue<Node> queue = new ArrayDeque(50);
+        while (next != null || !queue.isEmpty()) {
+            if (next == null)
+                next = queue.poll();
+            if (next.first != null)
                 queue.add(next.first);
-            System.out.println("insert into app_city ('code','name','parent') values ("+"'"+next.id+"','"+next.name+"','"+next.parent+"');");
-            next=next.next;
+            System.out.println("insert into app_city ('code','name','parent') values (" + "'" + next.id + "','" + next.name + "','" + next.parent + "');");
+            next = next.next;
         }
 
     }
@@ -210,7 +236,7 @@ public class ParseCity {
 
 }
 
-class AppCity{
+class AppCity {
 
     private Integer cityId;
     private String Name;
