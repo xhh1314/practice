@@ -13,6 +13,7 @@ public class ThreadPoolExecutorServiceTest {
 		threadPoolExecutor.execute(new PullImage());
 		threadPoolExecutor.execute(new PullImage());
 		threadPoolExecutor.execute(new PullImage());
+		Executors.newCachedThreadPool();
 
 	}
 

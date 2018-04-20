@@ -2,6 +2,8 @@ package practice.algorithm;
 
 /**
  * 堆实现 为了简单默认用整数
+ * <p>
+ * 该实现有问题，反例
  *
  * @author 李浩
  * @date $date
@@ -10,7 +12,7 @@ public class BinaryHeap {
 
     public static void main(String[] args) {
 
-        int[] a = {14, 1, 5, 18, 7, 4, 8,20,15,17,3,40,30,22,25,19};
+        int[] a = {14, 1, 5, 18, 7, 4, 8, 20, 15, 17, 3, 40, 30, 22, 25, 19};
         BinaryHeapImpl bhi = new BinaryHeapImpl(a.length + 1);
         int[] result = bhi.heap;
         for (int i = 0; i < a.length; i++) {
@@ -64,7 +66,7 @@ class BinaryHeapImpl {
      * @version
      */
     public void insertMax(int v) {
-        if (size == 0 ) {
+        if (size == 0) {
             heap[++size] = v;
             return;
         }
@@ -150,21 +152,21 @@ class BinaryHeapImpl {
      * 实现一个堆排序,使用最大堆删除
      */
     public void sort() {
-       for(int i=heap.length-1;i>1;i--){
-           int temp=heap[1];
-           heap[1]=heap[i];
-           heap[i]=temp;
-           size--;
-           adjustHeap(heap[1]);
+        for (int i = heap.length - 1; i > 1; i--) {
+            int temp = heap[1];
+            heap[1] = heap[i];
+            heap[i] = temp;
+            size--;
+            adjustHeap(heap[1]);
         }
 
     }
 
-    public void adjustHeap(int v){
+    public void adjustHeap(int v) {
         int current = 1;
         int left, right;
         while (true) {
-            int max=0;
+            int max = 0;
             //没有左右子树的时候结束循环
             if (size / 2 < current) {
                 heap[size] = v;
@@ -180,9 +182,9 @@ class BinaryHeapImpl {
             int temp = heap[max];
             if (v < temp) {
                 heap[current] = temp;
-               heap[max]=v;
-               current=max;
-            }else {
+                heap[max] = v;
+                current = max;
+            } else {
                 break;
             }
 

@@ -1,4 +1,4 @@
-package practice.nio;
+package practice.io;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
