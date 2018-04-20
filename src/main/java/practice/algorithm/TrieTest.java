@@ -48,7 +48,7 @@ public class TrieTest {
 
 
     /**
-     * 插入一个单词并且统计其出现的次数
+     * +
      *
      * @param target
      * @return
