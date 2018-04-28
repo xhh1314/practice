@@ -2,6 +2,10 @@ package practice.algorithm.other;
 
 /**
  * 反转一个链表
+ *
+ * @author lh
+ * @date 2018/4/26
+ * @since
  */
 public class ReverseLink {
 
