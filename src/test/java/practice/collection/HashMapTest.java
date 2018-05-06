@@ -17,7 +17,7 @@ public class HashMapTest {
 		while(i<100){
 			map1.put(++i+"key",i);
 		}
-		
+		System.out.println(Math.sqrt(8.0));
 		//map.put("lihao",new UserTest("lihao",4));
 	  //	map.put("xrr",new UserTest("lihao",34));
 		//System.out.println(map.getValue("lihao").getAge());
@@ -31,7 +31,8 @@ public class HashMapTest {
 		a=b=0;
 		b=3;
 		System.out.println(a);
-		
+		Math.abs(-1);
+
 		
 	}
 
