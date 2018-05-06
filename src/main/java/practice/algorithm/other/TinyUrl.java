@@ -3,13 +3,19 @@ package practice.algorithm.other;
 /**
  * Problem: Design a service like TinyURL, a URL shortening service, a web service that provides short aliases for redirection of long URLs.
  *
- * @Author
- * @Date ${date}
+ * @Author lh
+ * @Date 2018-04-23
  */
 public class TinyUrl {
 
     private final char[] map = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
 
+    /**
+     * 10进制转62进制
+     *
+     * @param id
+     * @return
+     */
     public String convertLongToString(long id) {
         StringBuilder stringBuilder = new StringBuilder();
         while (id > 0) {
@@ -23,7 +29,13 @@ public class TinyUrl {
         return stringBuilder.toString();
     }
 
-    public long convertBase64toLong(String str) {
+    /**
+     * 62 进制转10进制
+     *
+     * @param str
+     * @return
+     */
+    public long convertBase62toLong(String str) {
         char[] chars = str.toCharArray();
         long id = 0;
         for (int i = chars.length - 1; i >= 0; i--) {
@@ -32,6 +44,21 @@ public class TinyUrl {
         }
 
         return id;
+    }
+
+
+    /**
+     * 62 进制转10进制的第二种实现思路
+     *
+     * @param str
+     * @return
+     */
+    public long convertBase62toLong2(String str) {
+        long n = 0;
+        for (int i = 0; i < str.length(); i++) {
+            n = n * 62 + getDecimal(str.charAt(i));
+        }
+        return n;
     }
 
     private int getDecimal(char val) {
@@ -51,8 +78,8 @@ public class TinyUrl {
 
     public static void main(String[] args) {
         TinyUrl tinyUrl = new TinyUrl();
-        String base62 = tinyUrl.convertLongToString(5552333);
-        long id = tinyUrl.convertBase64toLong(base62);
+        String base62 = tinyUrl.convertLongToString(55523334);
+        long id = tinyUrl.convertBase62toLong2(base62);
         System.out.println("转换之后的long为:" + id);
 
     }
@@ -60,7 +87,7 @@ public class TinyUrl {
 
 }
 /*
-* 解决思路: 62进制数据转换
+* 解决思路: 把10进制转换成62进制进行存储
 * 其实就是把url存到数据库，得到唯一long类型id，然后把该id编码成62进制的字符，然后生成url
 * 最后根据这个url的字符，再转码成long 类型的id，根据该id取出原始url
 * */
