@@ -28,6 +28,8 @@ public class ConvertStringToInteger {
             } else {
                 throw new NumberFormatException();
             }
+            if (length == 1)
+                throw new NumberFormatException("无效的数字!");
         }
         //maxResult是负数
         int multmin = limit / 10;
@@ -35,13 +37,14 @@ public class ConvertStringToInteger {
         while (i < length) {
             if (!testNumber(value.charAt(i)))
                 throw new NumberFormatException("不合规的字符");
-            int n = value.charAt(i++)-'0';
+            int n = value.charAt(i++) - '0';
             //sum是负数
-            if (sum< multmin)
+            if (sum < multmin)
                 //溢出
                 throw new NumberFormatException("溢出!");
             //这里的这个设计特别重要，limit+n 保证数字不会溢出!
-            if(sum*10<limit+n)
+            //这里不能写成sum*10-n<limit 有溢出的风险
+            if (sum * 10 < limit + n)
                 throw new NumberFormatException("溢出!");
             sum = sum * 10 - n;
         }
@@ -56,7 +59,7 @@ public class ConvertStringToInteger {
     public static void main(String[] args) {
         //-2147483648
         System.out.println(Integer.MIN_VALUE);
-        int result = convertStringToInt("2147 483647");
+        int result = convertStringToInt("2147483647");
         //int result2=Integer.parseInt("2147483649");
 
     }
