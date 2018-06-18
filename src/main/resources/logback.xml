@@ -11,12 +11,12 @@ debug:
 
 <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" /> 
 	    <!-- 应用名称 -->
-    <property name="APP_NAME" value="practice" />
+    <property name="APP_NAME" val="practice" />
     <!--日志文件的保存路径,首先查找系统属性-Dlog.dir,如果存在就使用其；否则，在当前目录下创建名为logs目录做日志存放的目录 -->
-    <property name="LOG_HOME" value="${log.dir:-logs}/${APP_NAME}" />
+    <property name="LOG_HOME" val="${log.dir:-logs}/${APP_NAME}" />
     <!-- 日志输出格式 -->
     <property name="ENCODER_PATTERN"
-              value="%d{yyyy-MM-dd  HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n" />
+              val="%d{yyyy-MM-dd  HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n" />
     <!-- 每个logger都关联到logger上下文，默认上下文名称为“default”。但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。 -->
     <contextName>${APP_NAME}</contextName>
 
@@ -79,7 +79,7 @@ debug:
 
 <!-- 配置日志级别 和 需要输出到的文件 -->
     <root >
-        <level value="DEBUG" />
+        <level val="DEBUG" />
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
         <appender-ref ref="ERROR_FILE" />

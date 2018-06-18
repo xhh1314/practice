@@ -43,7 +43,7 @@ public class HashMap1<K, V> {
 	private V putVal(int hash, K k, V v) {
 		// TODO Auto-generated method stub
 		if (k == null || v == null) {
-			throw new IllegalArgumentException("key and  value can't be null");
+			throw new IllegalArgumentException("key and  val can't be null");
 		}
 		int i;
 		Node<K, V>[] tab;
