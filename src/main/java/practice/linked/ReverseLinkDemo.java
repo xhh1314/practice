@@ -8,14 +8,14 @@ package practice.linked;
  * @since
  */
 public class ReverseLinkDemo<T> {
-    ListNode<T> head;
+    Node<T> head;
 
 
     public void reverse(){
         if(this.head==null)
             return;
-        ListNode<T> pre=null;
-        ListNode<T> next=null;
+        Node<T> pre=null;
+        Node<T> next=null;
         while(head!=null){
             next=head.next;
             head.next=pre;
@@ -27,8 +27,8 @@ public class ReverseLinkDemo<T> {
 
 }
 
-class ListNode<T>{
+class Node<T>{
     T value;
-    ListNode<T> next;
+    Node<T> next;
 
 }
