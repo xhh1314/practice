@@ -32,8 +32,10 @@ public class HashMapTest {
 		b=3;
 		System.out.println(a);
 		Math.abs(-1);
+	}
 
-		
+	public void test3(){
+
 	}
 
 }

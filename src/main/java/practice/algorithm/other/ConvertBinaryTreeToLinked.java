@@ -42,7 +42,9 @@ public class ConvertBinaryTreeToLinked<T extends Comparable<T>> {
 
     }
 
-    public TreeNode<T> convert(TreeNode<T> root) {
+    public TreeNode<T>
+
+    convert(TreeNode<T> root) {
         //这里需要在堆中开辟一个地址来存储head指针，以保证递归中，栈帧中的临时变量值不会丢失
         TreeNode<T>[] head = new TreeNode[1];
         convertToLinked(root, head);

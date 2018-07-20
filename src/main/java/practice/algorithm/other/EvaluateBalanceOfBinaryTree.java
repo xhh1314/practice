@@ -24,11 +24,11 @@ public class EvaluateBalanceOfBinaryTree {
         int right = calculateDepth(root.right, flag);
         if (Math.abs(left - right) >= 2)
             flag[0] = 1;
-        return left >= right ? left+1 : right+1;
+        return left >= right ? left + 1 : right + 1;
     }
 
     public static void main(String[] args) {
-        EvaluateBalanceOfBinaryTree instance=new EvaluateBalanceOfBinaryTree();
+        EvaluateBalanceOfBinaryTree instance = new EvaluateBalanceOfBinaryTree();
         TreeNode<Integer> root = new TreeNode<Integer>(10);
         root.left = new TreeNode<Integer>(9);
         root.right = new TreeNode<Integer>(16);
@@ -38,8 +38,11 @@ public class EvaluateBalanceOfBinaryTree {
         root.left.left.right = new TreeNode<Integer>(6);
         root.right.right = new TreeNode<Integer>(18);
         root.right.left = new TreeNode<Integer>(15);
-        System.out.println("是否平衡:"+instance.evaluate(root));
-        root.left.left.left.left=new TreeNode<Integer>(4);
-        System.out.println("是否平衡:"+instance.evaluate(root));
+        System.out.println("是否平衡:" + instance.evaluate(root));
+        root.left.left.left.left = new TreeNode<Integer>(4);
+        System.out.println("是否平衡:" + instance.evaluate(root));
     }
 }
+/*
+* 解题思路，在求深度的过程中，如果有发现左右子树深度相差2，则做一下标记,可以通过传入一个数组来实现
+* */

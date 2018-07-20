@@ -8,7 +8,8 @@ package practice.algorithm.other;
  * @date 2018/4/22
  * @since
  */
-public class FirstNotRepeating {
+public class
+FirstNotRepeating {
 
     public char firstRepeatChar(String str) {
         if (str == null)
