@@ -45,7 +45,7 @@ public class ReverseLink {
         @Override
         public String toString() {
             final StringBuilder sb = new StringBuilder("Node{");
-            sb.append("value=").append(value);
+            sb.append("val=").append(value);
             sb.append('}');
             return sb.toString();
         }

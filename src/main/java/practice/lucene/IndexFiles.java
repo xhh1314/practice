@@ -175,7 +175,7 @@ public class IndexFiles {
       // PointRangeQuery).  This indexes to milli-second resolution, which
       // is often too fine.  You could instead create a number based on
       // year/month/day/hour/minutes/seconds, down the resolution you require.
-      // For example the long value 2011021714 would mean
+      // For example the long val 2011021714 would mean
       // February 17, 2011, 2-3 PM.
       doc.add(new LongPoint("modified", lastModified));
       

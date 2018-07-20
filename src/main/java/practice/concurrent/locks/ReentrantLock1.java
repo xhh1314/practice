@@ -307,7 +307,7 @@ public class ReentrantLock1 implements Lock, java.io.Serializable {
      * of invocation.
      *
      * <p>Acquires the lock if it is not held by another thread and
-     * returns immediately with the value {@code true}, setting the
+     * returns immediately with the val {@code true}, setting the
      * lock hold count to one. Even when this lock has been set to use a
      * fair ordering policy, a call to {@code tryLock()} <em>will</em>
      * immediately acquire the lock if it is available, whether or not
@@ -322,7 +322,7 @@ public class ReentrantLock1 implements Lock, java.io.Serializable {
      * count is incremented by one and the method returns {@code true}.
      *
      * <p>If the lock is held by another thread then this method will return
-     * immediately with the value {@code false}.
+     * immediately with the val {@code false}.
      *
      * @return {@code true} if the lock was free and was acquired by the
      *         current thread, or the lock was already held by the current
@@ -338,7 +338,7 @@ public class ReentrantLock1 implements Lock, java.io.Serializable {
      * {@linkplain Thread#interrupt interrupted}.
      *
      * <p>Acquires the lock if it is not held by another thread and returns
-     * immediately with the value {@code true}, setting the lock hold count
+     * immediately with the val {@code true}, setting the lock hold count
      * to one. If this lock has been set to use a fair ordering policy then
      * an available lock <em>will not</em> be acquired if any other threads
      * are waiting for the lock. This is in contrast to the {@link #tryLock()}
@@ -370,7 +370,7 @@ public class ReentrantLock1 implements Lock, java.io.Serializable {
      *
      * </ul>
      *
-     * <p>If the lock is acquired then the value {@code true} is returned and
+     * <p>If the lock is acquired then the val {@code true} is returned and
      * the lock hold count is set to one.
      *
      * <p>If the current thread:
@@ -386,7 +386,7 @@ public class ReentrantLock1 implements Lock, java.io.Serializable {
      * then {@link InterruptedException} is thrown and the current thread's
      * interrupted status is cleared.
      *
-     * <p>If the specified waiting time elapses then the value {@code false}
+     * <p>If the specified waiting time elapses then the val {@code false}
      * is returned.  If the time is less than or equal to zero, the method
      * will not wait at all.
      *
@@ -569,7 +569,7 @@ public class ReentrantLock1 implements Lock, java.io.Serializable {
     /**
      * Returns the thread that currently owns this lock, or
      * {@code null} if not owned. When this method is called by a
-     * thread that is not the owner, the return value reflects a
+     * thread that is not the owner, the return val reflects a
      * best-effort approximation of current lock status. For example,
      * the owner may be momentarily {@code null} even if there are
      * threads trying to acquire the lock but have not yet done so.
@@ -614,7 +614,7 @@ public class ReentrantLock1 implements Lock, java.io.Serializable {
 
     /**
      * Returns an estimate of the number of threads waiting to
-     * acquire this lock.  The value is only an estimate because the number of
+     * acquire this lock.  The val is only an estimate because the number of
      * threads may change dynamically while this method traverses
      * internal data structures.  This method is designed for use in
      * monitoring of the system state, not for synchronization

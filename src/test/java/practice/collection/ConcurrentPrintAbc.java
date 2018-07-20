@@ -59,7 +59,7 @@ public class ConcurrentPrintAbc {
             try {
                 while (!flag.equals("A"))
                     conditionA.await();
-                System.out.println("current thread:" + Thread.currentThread().getName() + ",value is A");
+                System.out.println("current thread:" + Thread.currentThread().getName() + ",val is A");
                 flag="B";
                 conditionB.signal();
             } catch (InterruptedException e) {
@@ -75,7 +75,7 @@ public class ConcurrentPrintAbc {
             try {
                 while (!flag.equals("B"))
                     conditionB.await();
-                System.out.println("current thread:" + Thread.currentThread().getName() + ",value is B");
+                System.out.println("current thread:" + Thread.currentThread().getName() + ",val is B");
                 flag="C";
                 conditionC.signal();
             } catch (InterruptedException e) {
@@ -91,7 +91,7 @@ public class ConcurrentPrintAbc {
             try {
                 while (!flag.equals("C"))
                     conditionC.await();
-                System.out.println("current thread:" + Thread.currentThread().getName() + ",value is C");
+                System.out.println("current thread:" + Thread.currentThread().getName() + ",val is C");
                 flag="A";
                 conditionA.signal();
             } catch (InterruptedException e) {

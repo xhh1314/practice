@@ -33,14 +33,14 @@ public abstract class AbstractQueuedSynchronizer1
         /** Marker to indicate a node is waiting in exclusive mode */
         static final Node EXCLUSIVE = null;
 
-        /** waitStatus value to indicate thread has cancelled */
+        /** waitStatus val to indicate thread has cancelled */
         static final int CANCELLED =  1;
-        /** waitStatus value to indicate successor's thread needs unparking */
+        /** waitStatus val to indicate successor's thread needs unparking */
         static final int SIGNAL    = -1;
-        /** waitStatus value to indicate thread is waiting on condition */
+        /** waitStatus val to indicate thread is waiting on condition */
         static final int CONDITION = -2;
         /**
-         * waitStatus value to indicate the next acquireShared should
+         * waitStatus val to indicate the next acquireShared should
          * unconditionally propagate
          */
         static final int PROPAGATE = -3;
@@ -60,7 +60,7 @@ public abstract class AbstractQueuedSynchronizer1
          *   CONDITION:  This node is currently on a condition queue.
          *               It will not be used as a sync queue node
          *               until transferred, at which time the status
-         *               will be set to 0. (Use of this value here has
+         *               will be set to 0. (Use of this val here has
          *               nothing to do with the other uses of the
          *               field, but simplifies mechanics.)
          *   PROPAGATE:  A releaseShared should be propagated to other
@@ -117,12 +117,12 @@ public abstract class AbstractQueuedSynchronizer1
 
         /**
          * Link to next node waiting on condition, or the special
-         * value SHARED.  Because condition queues are accessed only
+         * val SHARED.  Because condition queues are accessed only
          * when holding in exclusive mode, we just need a simple
          * linked queue to hold nodes while they are waiting on
          * conditions. They are then transferred to the queue to
          * re-acquire. And because conditions can only be exclusive,
-         * we save a field by using special value to indicate shared
+         * we save a field by using special val to indicate shared
          * mode.
          */
         Node nextWaiter;
@@ -183,18 +183,18 @@ public abstract class AbstractQueuedSynchronizer1
     private volatile int state;
 
     /**
-     * Returns the current value of synchronization state.
+     * Returns the current val of synchronization state.
      * This operation has memory semantics of a {@code volatile} read.
-     * @return current state value
+     * @return current state val
      */
     protected final int getState() {
         return state;
     }
 
     /**
-     * Sets the value of synchronization state.
+     * Sets the val of synchronization state.
      * This operation has memory semantics of a {@code volatile} write.
-     * @param newState the new state value
+     * @param newState the new state val
      */
     protected final void setState(int newState) {
         state = newState;
@@ -202,14 +202,14 @@ public abstract class AbstractQueuedSynchronizer1
 
     /**
      * Atomically sets synchronization state to the given updated
-     * value if the current state value equals the expected value.
+     * val if the current state val equals the expected val.
      * This operation has memory semantics of a {@code volatile} read
      * and write.
      *
-     * @param expect the expected value
-     * @param update the new value
+     * @param expect the expected val
+     * @param update the new val
      * @return {@code true} if successful. False return indicates that the actual
-     *         value was not equal to the expected value.
+     *         val was not equal to the expected val.
      */
     protected final boolean compareAndSetState(int expect, int update) {
         // See below for intrinsics setup to support this
@@ -353,7 +353,7 @@ public abstract class AbstractQueuedSynchronizer1
      * PROPAGATE status was set.
      *
      * @param node the node
-     * @param propagate the return value from a tryAcquireShared
+     * @param propagate the return val from a tryAcquireShared
      */
     private void setHeadAndPropagate(Node node, int propagate) {
         Node h = head; // Record old head for check below
@@ -715,9 +715,9 @@ public abstract class AbstractQueuedSynchronizer1
      * <p>The default
      * implementation throws {@link UnsupportedOperationException}.
      *
-     * @param arg the acquire argument. This value is always the one
-     *        passed to an acquire method, or is the value saved on entry
-     *        to a condition wait.  The value is otherwise uninterpreted
+     * @param arg the acquire argument. This val is always the one
+     *        passed to an acquire method, or is the val saved on entry
+     *        to a condition wait.  The val is otherwise uninterpreted
      *        and can represent anything you like.
      * @return {@code true} if successful. Upon success, this object has
      *         been acquired.
@@ -740,9 +740,9 @@ public abstract class AbstractQueuedSynchronizer1
      * <p>The default implementation throws
      * {@link UnsupportedOperationException}.
      *
-     * @param arg the release argument. This value is always the one
-     *        passed to a release method, or the current state value upon
-     *        entry to a condition wait.  The value is otherwise
+     * @param arg the release argument. This val is always the one
+     *        passed to a release method, or the current state val upon
+     *        entry to a condition wait.  The val is otherwise
      *        uninterpreted and can represent anything you like.
      * @return {@code true} if this object is now in a fully released
      *         state, so that any waiting threads may attempt to acquire;
@@ -770,13 +770,13 @@ public abstract class AbstractQueuedSynchronizer1
      * <p>The default implementation throws {@link
      * UnsupportedOperationException}.
      *
-     * @param arg the acquire argument. This value is always the one
-     *        passed to an acquire method, or is the value saved on entry
-     *        to a condition wait.  The value is otherwise uninterpreted
+     * @param arg the acquire argument. This val is always the one
+     *        passed to an acquire method, or is the val saved on entry
+     *        to a condition wait.  The val is otherwise uninterpreted
      *        and can represent anything you like.
-     * @return a negative value on failure; zero if acquisition in shared
+     * @return a negative val on failure; zero if acquisition in shared
      *         mode succeeded but no subsequent shared-mode acquire can
-     *         succeed; and a positive value if acquisition in shared
+     *         succeed; and a positive val if acquisition in shared
      *         mode succeeded and subsequent shared-mode acquires might
      *         also succeed, in which case a subsequent waiting thread
      *         must check availability. (Support for three different
@@ -801,9 +801,9 @@ public abstract class AbstractQueuedSynchronizer1
      * <p>The default implementation throws
      * {@link UnsupportedOperationException}.
      *
-     * @param arg the release argument. This value is always the one
-     *        passed to a release method, or the current state value upon
-     *        entry to a condition wait.  The value is otherwise
+     * @param arg the release argument. This val is always the one
+     *        passed to a release method, or the current state val upon
+     *        entry to a condition wait.  The val is otherwise
      *        uninterpreted and can represent anything you like.
      * @return {@code true} if this release of shared mode may permit a
      *         waiting acquire (shared or exclusive) to succeed; and
@@ -845,7 +845,7 @@ public abstract class AbstractQueuedSynchronizer1
      * #tryAcquire} until success.  This method can be used
      * to implement method {@link Lock#lock}.
      *
-     * @param arg the acquire argument.  This value is conveyed to
+     * @param arg the acquire argument.  This val is conveyed to
      *        {@link #tryAcquire} but is otherwise uninterpreted and
      *        can represent anything you like.
      */
@@ -865,7 +865,7 @@ public abstract class AbstractQueuedSynchronizer1
      * until success or the thread is interrupted.  This method can be
      * used to implement method {@link Lock#lockInterruptibly}.
      *
-     * @param arg the acquire argument.  This value is conveyed to
+     * @param arg the acquire argument.  This val is conveyed to
      *        {@link #tryAcquire} but is otherwise uninterpreted and
      *        can represent anything you like.
      * @throws InterruptedException if the current thread is interrupted
@@ -888,7 +888,7 @@ public abstract class AbstractQueuedSynchronizer1
      * or the timeout elapses.  This method can be used to implement
      * method {@link Lock#tryLock(long, TimeUnit)}.
      *
-     * @param arg the acquire argument.  This value is conveyed to
+     * @param arg the acquire argument.  This val is conveyed to
      *        {@link #tryAcquire} but is otherwise uninterpreted and
      *        can represent anything you like.
      * @param nanosTimeout the maximum number of nanoseconds to wait
@@ -908,10 +908,10 @@ public abstract class AbstractQueuedSynchronizer1
      * more threads if {@link #tryRelease} returns true.
      * This method can be used to implement method {@link Lock#unlock}.
      *
-     * @param arg the release argument.  This value is conveyed to
+     * @param arg the release argument.  This val is conveyed to
      *        {@link #tryRelease} but is otherwise uninterpreted and
      *        can represent anything you like.
-     * @return the value returned from {@link #tryRelease}
+     * @return the val returned from {@link #tryRelease}
      */
     public final boolean release(int arg) {
         if (tryRelease(arg)) {//把state状态改为0
@@ -930,7 +930,7 @@ public abstract class AbstractQueuedSynchronizer1
      * repeatedly blocking and unblocking, invoking {@link
      * #tryAcquireShared} until success.
      *
-     * @param arg the acquire argument.  This value is conveyed to
+     * @param arg the acquire argument.  This val is conveyed to
      *        {@link #tryAcquireShared} but is otherwise uninterpreted
      *        and can represent anything you like.
      */
@@ -947,7 +947,7 @@ public abstract class AbstractQueuedSynchronizer1
      * invoking {@link #tryAcquireShared} until success or the thread
      * is interrupted.
      * @param arg the acquire argument.
-     * This value is conveyed to {@link #tryAcquireShared} but is
+     * This val is conveyed to {@link #tryAcquireShared} but is
      * otherwise uninterpreted and can represent anything
      * you like.
      * @throws InterruptedException if the current thread is interrupted
@@ -969,7 +969,7 @@ public abstract class AbstractQueuedSynchronizer1
      * invoking {@link #tryAcquireShared} until success or the thread
      * is interrupted or the timeout elapses.
      *
-     * @param arg the acquire argument.  This value is conveyed to
+     * @param arg the acquire argument.  This val is conveyed to
      *        {@link #tryAcquireShared} but is otherwise uninterpreted
      *        and can represent anything you like.
      * @param nanosTimeout the maximum number of nanoseconds to wait
@@ -988,10 +988,10 @@ public abstract class AbstractQueuedSynchronizer1
      * Releases in shared mode.  Implemented by unblocking one or more
      * threads if {@link #tryReleaseShared} returns true.
      *
-     * @param arg the release argument.  This value is conveyed to
+     * @param arg the release argument.  This val is conveyed to
      *        {@link #tryReleaseShared} but is otherwise uninterpreted
      *        and can represent anything you like.
-     * @return the value returned from {@link #tryReleaseShared}
+     * @return the val returned from {@link #tryReleaseShared}
      */
     public final boolean releaseShared(int arg) {
         if (tryReleaseShared(arg)) {
@@ -1143,7 +1143,7 @@ public abstract class AbstractQueuedSynchronizer1
      * avoid <a href="AbstractQueuedSynchronizer#barging">barging</a>.
      * Such a synchronizer's {@link #tryAcquire} method should return
      * {@code false}, and its {@link #tryAcquireShared} method should
-     * return a negative value, if this method returns {@code true}
+     * return a negative val, if this method returns {@code true}
      * (unless this is a reentrant acquire).  For example, the {@code
      * tryAcquire} method for a fair, reentrant, exclusive mode
      * synchronizer might look like this:
@@ -1181,7 +1181,7 @@ public abstract class AbstractQueuedSynchronizer1
 
     /**
      * Returns an estimate of the number of threads waiting to
-     * acquire.  The value is only an estimate because the number of
+     * acquire.  The val is only an estimate because the number of
      * threads may change dynamically while this method traverses
      * internal data structures.  This method is designed for use in
      * monitoring system state, not for synchronization
@@ -1262,7 +1262,7 @@ public abstract class AbstractQueuedSynchronizer1
     /**
      * Returns a string identifying this synchronizer, as well as its state.
      * The state, in brackets, includes the String {@code "State ="}
-     * followed by the current value of {@link #getState}, and either
+     * followed by the current val of {@link #getState}, and either
      * {@code "nonempty"} or {@code "empty"} depending on whether the
      * queue is empty.
      *
@@ -1367,7 +1367,7 @@ public abstract class AbstractQueuedSynchronizer1
     }
 
     /**
-     * Invokes release with current state value; returns saved state.
+     * Invokes release with current state val; returns saved state.
      * Cancels node and throws exception on failure.
      * @param node the condition node for this wait
      * @return previous sync state
